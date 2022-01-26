@@ -1,25 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+// import React from "react"
+// import ReactDOM from 'react-dom'
+import TitleForm from "./components/title-form/TitleForm.js"
+import ResultCurrent from "./components/result-current/ResultCurrent.js"
+import ResultForecast from "./components/result-forecast/ResultForecast.js"
 
-function App() {
+export default function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <TitleForm />
+      <ResultCurrent />
+      <ResultForecast />
     </div>
-  );
+  )
 }
-
-export default App;
