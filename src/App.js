@@ -1,16 +1,14 @@
-import React from "react"
-import ReactDOM from "react-dom"
-import Title from "./components/Title"
-import ResultCurrentLeft from "./components/ResultCurrentLeft"
-import ResultCurrentRight from "./components/ResultCurrentRight"
-import ResultForecast from "./components/ResultForecast"
+// import React from "react"
+// import ReactDOM from 'react-dom'
+import TitleForm from "./components/title-form/TitleForm.js"
+import ResultCurrent from "./components/result-current/ResultCurrent.js"
+import ResultForecast from "./components/result-forecast/ResultForecast.js"
 
 export default function App() {
   return (
-    <div className="app">
-      <Title />
-      <ResultCurrentLeft />
-      <ResultCurrentRight />
+    <div className="App">
+      <TitleForm />
+      <ResultCurrent />
       <ResultForecast />
     </div>
   )
