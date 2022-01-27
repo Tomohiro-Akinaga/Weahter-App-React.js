@@ -1,0 +1,61 @@
+/* common */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
+* {
+  box-sizing: border-box;
+  font-family: "Poppins";
+  margin: 0;
+}
+
+.app {
+  margin: 0;
+  padding: 20px;
+  height: 100vh;
+  width: 100vw;
+}
+
+.top-container {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
+.country-date {
+  width: 50%;
+  text-align: center;
+}
+
+.search-bar {
+  width: 50%;
+  text-align: center;
+}
+
+.middle-container {
+  display: flex;
+  width: 100%;
+}
+
+.current-weather {
+  display: flex;
+  width: 50%;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.current-description {
+  display: flex;
+  width: 50%;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.current-description__upper {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+.current-description__lower {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+/*# sourceMappingURL=app.css.map */
