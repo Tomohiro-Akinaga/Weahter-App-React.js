@@ -4,6 +4,8 @@ import CountryDate from "./components/CountryDate.js"
 import CurrentDescription from "./components/CurrentDescription";
 import CurrentWeather from "./components/CurrentWeather";
 import SearchBar from "./components/SearchBar.js"
+import SwitchBar from "./components/SwitchBar.js";
+import HourlyData from "./components/HourlyData.js";
 // import ResultCurrent from "./components/result-current/ResultCurrent.js"
 // import ResultForecast from "./components/result-forecast/ResultForecast.js"
 
@@ -18,10 +20,15 @@ export default function App() {
         <CurrentWeather />
         <CurrentDescription />
       </div>
+      <SwitchBar />
       <div className="bottom-container">
-        <SwitchBar />
         <HourlyData />
-        <DailyData />
+        <HourlyData />
+        <HourlyData />
+        <HourlyData />
+        <HourlyData />
+        <HourlyData />
+        {/* <DailyData /> */}
       </div>
 
     </div>

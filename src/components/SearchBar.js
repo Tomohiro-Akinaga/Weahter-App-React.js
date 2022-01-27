@@ -1,7 +1,7 @@
 import React from "react"
 import "../css/app.css"
 
-export default function SearchBar() {
+export default function SwitchBar() {
     return (
         <div className="search-bar">
             <input type="text"></input>
