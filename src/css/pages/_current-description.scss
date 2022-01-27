@@ -1,0 +1,17 @@
+.current-description {
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    &__upper {
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+    }
+    &__lower {
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+    }
+}
