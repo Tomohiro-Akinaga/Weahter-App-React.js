@@ -1,6 +1,11 @@
 .app {
-    padding: 20px;
+    padding: 20px 40px;
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+.app-top {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
 }

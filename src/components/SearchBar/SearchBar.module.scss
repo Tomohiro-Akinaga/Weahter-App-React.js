@@ -1,16 +1,18 @@
 @import "./variables";
 
-.container {
+.form {
     background-color: #fff;
-    border-radius: 50px;
+    border-radius: 5px;
     width: 400px;
-    height: 30px;
+    height: 35px;
     display: flex;
     align-items: center;
     padding: 0 20px;
 }
 
 .input {
+    color: $input-color;
+    font-size: 1.2rem;
     width: 95%;
     border: none;
     &:focus {
@@ -28,6 +30,9 @@
     }
     &:active {
         transform: scale(0.9);
+    }
+    &:focus {
+        outline: 0;
     }
 }
 

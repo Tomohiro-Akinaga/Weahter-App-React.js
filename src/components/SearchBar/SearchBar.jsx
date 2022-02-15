@@ -3,12 +3,18 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 export default function SearchBar() {
+
+    /* Controller role of MVC */
+    function handleChange() {
+        console.log("hello");
+    }
+
     return (
-        <div className={SearchBarStyle.container}>
-            <input className={SearchBarStyle.input} type="text" placeholder="Enter city name"></input>
-            <button className={SearchBarStyle.button} type="button">
+        <form className={SearchBarStyle.form} autoComplete="off">
+            <input className={SearchBarStyle.input} type="text" placeholder="Enter city name" onChange={handleChange}></input>
+            <button className={SearchBarStyle.button} type="button" onChange={handleChange}>
                 <FontAwesomeIcon className={SearchBarStyle.icon} icon={faMagnifyingGlass} />
             </button>
-        </div>
+        </form>
     )
 }

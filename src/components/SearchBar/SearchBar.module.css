@@ -1,14 +1,16 @@
-.container {
+.form {
   background-color: #fff;
-  border-radius: 50px;
+  border-radius: 5px;
   width: 400px;
-  height: 30px;
+  height: 35px;
   display: flex;
   align-items: center;
   padding: 0 20px;
 }
 
 .input {
+  color: #3e3e3e;
+  font-size: 1.2rem;
   width: 95%;
   border: none;
 }
@@ -27,6 +29,9 @@
 }
 .button:active {
   transform: scale(0.9);
+}
+.button:focus {
+  outline: 0;
 }
 
 .icon {
