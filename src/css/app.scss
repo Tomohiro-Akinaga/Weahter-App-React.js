@@ -1,10 +1,11 @@
-@import "../css/pages/_common.scss";
-@import "../css/pages/_top-container.scss";
-@import "../css/pages/_country-date.scss";
-@import "../css/pages/_search-bar.scss";
-@import "../css/pages/_middle-container.scss";
-@import "../css/pages/_current-weather.scss";
-@import "../css/pages/_current-description.scss";
-@import "../css/pages/_switch-bar.scss";
-@import "../css/pages/_bottom-container.scss";
-@import "../css/pages/_hourly-data";
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
+
+body {
+    background-image: url(../resources/images/japan.jpg);
+    background-size: cover;
+    backdrop-filter: brightness(40%);
+    margin: 0;
+    height: 100vh;
+    color: #fff;
+    font-family: "Poppins";
+}
