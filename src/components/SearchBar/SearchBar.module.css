@@ -1,0 +1,41 @@
+.form {
+  background-color: #fff;
+  border-radius: 5px;
+  width: 400px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.input {
+  color: #3e3e3e;
+  font-size: 1.2rem;
+  width: 95%;
+  border: none;
+}
+.input:focus {
+  outline: 0;
+}
+
+.button {
+  border: none;
+  background-color: transparent;
+  height: 100%;
+  padding: 5px 0;
+}
+.button:hover {
+  cursor: pointer;
+}
+.button:active {
+  transform: scale(0.9);
+}
+.button:focus {
+  outline: 0;
+}
+
+.icon {
+  height: 100%;
+  color: #505050;
+}
+/*# sourceMappingURL=SearchBar.module.css.map */
