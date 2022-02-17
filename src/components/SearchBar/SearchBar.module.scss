@@ -1,5 +1,9 @@
 @import "./variables";
 
+.container {
+    position: relative;
+}
+
 .form {
     background-color: #fff;
     border-radius: 5px;
@@ -39,4 +43,28 @@
 .icon {
     height: 100%;
     color: $search-button-icon;
+}
+
+.autocomplete {
+    position: absolute;
+    width: 100%;
+}
+
+.ul {
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid $autocomplete-border-color;
+}
+
+.li {
+    color: #000;
+    list-style-type: none;
+    background-color: #fff;
+    border: 1px solid $autocomplete-border-color;
+    border-top: none;
+    padding: 5px 0px 5px 20px;
+    &:hover {
+        background-color: $autocomplete-hover-color;
+        cursor: pointer;
+    }
 }
