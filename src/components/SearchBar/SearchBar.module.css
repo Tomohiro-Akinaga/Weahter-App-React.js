@@ -1,3 +1,7 @@
+.container {
+  position: relative;
+}
+
 .form {
   background-color: #fff;
   border-radius: 5px;
@@ -37,5 +41,29 @@
 .icon {
   height: 100%;
   color: #505050;
+}
+
+.autocomplete {
+  position: absolute;
+  width: 100%;
+}
+
+.ul {
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid #000;
+}
+
+.li {
+  color: #000;
+  list-style-type: none;
+  background-color: #fff;
+  border: 1px solid #000;
+  border-top: none;
+  padding: 5px 0px 5px 20px;
+}
+.li:hover {
+  background-color: #ededed;
+  cursor: pointer;
 }
 /*# sourceMappingURL=SearchBar.module.css.map */

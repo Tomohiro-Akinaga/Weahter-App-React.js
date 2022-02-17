@@ -8,7 +8,6 @@ export default function DisplayDate() {
     const month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     const monthIndex = today.getMonth();
     
-
     return (
         <div className={DisplayDateStyle.container}>
             <p className={DisplayDateStyle.city}>Vancouver, Canada</p>

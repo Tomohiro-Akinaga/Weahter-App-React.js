@@ -6,11 +6,14 @@ import AutocompleteView from "./AutocompleteView.jsx";
 export default function SearchBar() {
 
     return (
-        <form className={SearchBarStyle.form} autoComplete="off">
-            <input id="input" className={SearchBarStyle.input} type="text" placeholder="Enter city name" onChange={AutocompleteView}></input>
-            <button className={SearchBarStyle.button} type="button">
-                <FontAwesomeIcon className={SearchBarStyle.icon} icon={faMagnifyingGlass} />
-            </button>
-        </form>
+        <div className={SearchBarStyle.container}>
+            <form id="form" className={SearchBarStyle.form} autoComplete="off">
+                <input id="input" className={SearchBarStyle.input} type="text" placeholder="Enter city name"></input>
+                <button className={SearchBarStyle.button} type="button">
+                    <FontAwesomeIcon className={SearchBarStyle.icon} icon={faMagnifyingGlass} />
+                </button>
+            </form>
+            <AutocompleteView />
+        </div>
     )
 }
