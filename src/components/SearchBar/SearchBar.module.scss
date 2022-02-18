@@ -6,7 +6,7 @@
 
 .form {
     background-color: #fff;
-    border-radius: 5px;
+    border-radius: 3px;
     width: 400px;
     height: 35px;
     display: flex;
@@ -48,6 +48,8 @@
 .autocomplete {
     position: absolute;
     width: 100%;
+    overflow: scroll;
+    height: 50vh;
 }
 
 .ul {
