@@ -5,7 +5,7 @@ import AutocompleteView from "./AutocompleteView.jsx";
 
 export default function SearchBar() {
 
-    function ErrorMessage(event) {
+    function handleSubmit(event) {
         event.preventDefault();
         const input = document.getElementById("input");
         if (!input.value) {
@@ -15,7 +15,7 @@ export default function SearchBar() {
 
     return (
         <div className={SearchBarStyle.container}>
-            <form id="form" className={SearchBarStyle.form} onSubmit={ErrorMessage} autoComplete="off" type="submit">
+            <form id="form" className={SearchBarStyle.form} onSubmit={handleSubmit} autoComplete="off" type="submit">
                 <input id="input" className={SearchBarStyle.input} onChange={AutocompleteView} type="text" placeholder="Enter country name"></input>
                 <button className={SearchBarStyle.button} type="submit">
                     <FontAwesomeIcon className={SearchBarStyle.icon} icon={faMagnifyingGlass} />
