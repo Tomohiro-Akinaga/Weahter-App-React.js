@@ -1,4 +1,4 @@
-import DisplayDateStyle from "../DisplayDate/DisplayDate.module.css"
+import DisplayDateStyle from "../DisplayDate/DisplayDate.module.scss"
 
 export default function DisplayDate() {
     const today = new Date();

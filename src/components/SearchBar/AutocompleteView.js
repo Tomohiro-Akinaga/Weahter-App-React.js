@@ -1,4 +1,4 @@
-import AutocompleteModel from "./AutocompleteModel.jsx";
+import AutocompleteModel from "./AutocompleteModel.js";
 
 export default function AutocompleteView() {
     const keyword = AutocompleteModel();

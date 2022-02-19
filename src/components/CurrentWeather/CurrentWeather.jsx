@@ -1,5 +1,5 @@
 import CurrentWeatherImg from "../../resources/images/cloudy.png";
-import CurrentWeatherStyle from "../CurrentWeather/CurrentWeather.module.css";
+import CurrentWeatherStyle from "../CurrentWeather/CurrentWeather.module.scss";
 
 export default function CurrentWeather() {
     return (
