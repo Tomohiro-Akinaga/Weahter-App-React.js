@@ -1,0 +1,1 @@
+<Autocomplete keyword/>でkeywordをpropsで渡すより、AppのSearchBarで渡す方が良い？

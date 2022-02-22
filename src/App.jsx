@@ -9,9 +9,6 @@ export default function App() {
         <DisplayDate />
         <SearchBar />
       </div>
-      {/* <div className="app-middle">
-        <CurrentWeather />
-      </div> */}
     </div>
   )
 };
