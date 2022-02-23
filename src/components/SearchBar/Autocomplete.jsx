@@ -1,3 +1,7 @@
-// export default function Autocomplete(props) {
-//     console.log(props.keyword);
-// }
+export default function Autocomplete(props) {
+    return (
+        <div>
+            <h1>{props.keyword}</h1>
+        </div>
+    )
+}
