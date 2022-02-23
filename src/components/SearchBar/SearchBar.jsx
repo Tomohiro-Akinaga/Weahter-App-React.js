@@ -2,10 +2,9 @@ import SearchBarStyle from "../SearchBar/SearchBar.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import JSON from "./countryState.json";
-import Autocomplete from "./Autocomplete.jsx";
+// import Autocomplete from "./Autocomplete.jsx";
 
 export default function SearchBar() {
-    
     function handleChange(event) {
         const inputValue = event.target.value;
         const normalizedKeyword = inputValue.trim().toLowerCase();
@@ -14,8 +13,8 @@ export default function SearchBar() {
         }
         const matchedName = JSON.data.filter(x => 
             x.name.toLowerCase().substr(0, normalizedKeyword.length) === normalizedKeyword);
-            
     }
+
 
     return (
         <div className={SearchBarStyle.container}>
@@ -25,7 +24,7 @@ export default function SearchBar() {
                     <FontAwesomeIcon className={SearchBarStyle.icon} icon={faMagnifyingGlass} />
                 </button>
             </form>
-            <Autocomplete keyword={matchedName}/>
+            {/* <Autocomplete /> */}
         </div>
     )
 }
