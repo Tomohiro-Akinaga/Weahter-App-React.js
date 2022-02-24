@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import SearchBarStyle from "../SearchBar/SearchBar.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import Autocomplete from "./Autocomplete.jsx";
 
-export default function SearchBar() {
+export default function SearchBar(props) {
 
     const [keyword, setKeyword] = React.useState("[]");
+    const [country, setCountry] = React.useState("Canada");
     const inputRef = React.useRef(null);
 
     function handleChange(event) {
@@ -19,12 +20,21 @@ export default function SearchBar() {
 
     function handleClick(event) {
         inputRef.current.value = event.target.innerText;
+        setKeyword("[]");
     }   
 
     function handleSubmit(event) {
         event.preventDefault();
-        console.log(event.target.querySelector(".SearchBar_input__V8-ey").value);
+        setCountry(event.target.querySelector(".SearchBar_input__V8-ey").value);
     }
+
+    useEffect(() => {
+        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${country}&appid=7d20d69e5d5abc8385c9ae6416019816`)
+            .then(res => res.json())
+            .then(data => {props.setApi(data)})
+    }, [country]);
+
+    
 
     return (
         <div className={SearchBarStyle.container} >
