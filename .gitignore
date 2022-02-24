@@ -23,6 +23,5 @@ yarn-debug.log*
 yarn-error.log*
 
 # css
-*module.css.map
-*module.min.css
-*module.min.css.map
+*.map
+*.css

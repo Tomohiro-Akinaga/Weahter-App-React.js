@@ -1,6 +1,6 @@
 import SearchBar from "./components/SearchBar/SearchBar.jsx";
 import DisplayDate from "./components/DisplayDate/DisplayDate.jsx";
-import "./App.css";
+import "./App.scss";
 
 export default function App() {
   return (
@@ -9,9 +9,6 @@ export default function App() {
         <DisplayDate />
         <SearchBar />
       </div>
-      {/* <div className="app-middle">
-        <CurrentWeather />
-      </div> */}
     </div>
   )
 };

@@ -1,33 +1,40 @@
-import SearchBarStyle from "../SearchBar/SearchBar.module.css";
+import React from "react";
+import SearchBarStyle from "../SearchBar/SearchBar.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-import AutocompleteView from "./AutocompleteView.jsx";
+import Autocomplete from "./Autocomplete.jsx";
 
 export default function SearchBar() {
 
-    function handleSubmit(event) {
-        event.preventDefault();
-        const input = document.getElementById("input");
-        if (!input.value) {
-            alert("Enter country or state name")
+    const [keyword, setKeyword] = React.useState("[]");
+    const inputRef = React.useRef(null);
+
+    function handleChange(event) {
+        if (!event.target.value) {
+            setKeyword("[]");
+        } else {
+            setKeyword(event.target.value);
         }
     }
 
+    function handleClick(event) {
+        inputRef.current.value = event.target.innerText;
+    }   
+
+    function handleSubmit(event) {
+        event.preventDefault();
+        console.log(event.target.querySelector(".SearchBar_input__V8-ey").value);
+    }
+
     return (
-        <div className={SearchBarStyle.container}>
-            <form id="form" className={SearchBarStyle.form} onSubmit={handleSubmit} autoComplete="off" type="submit">
-                <input id="input" className={SearchBarStyle.input} onChange={AutocompleteView} type="text" placeholder="Enter country name"></input>
+        <div className={SearchBarStyle.container} >
+            <form className={SearchBarStyle.form} autoComplete="off" type="submit" onSubmit={handleSubmit}>
+                <input className={SearchBarStyle.input} onChange={handleChange} type="text" placeholder="Enter country name" ref={inputRef}></input>
                 <button className={SearchBarStyle.button} type="submit">
                     <FontAwesomeIcon className={SearchBarStyle.icon} icon={faMagnifyingGlass} />
                 </button>
             </form>
-            <div className={SearchBarStyle.autocomplete}>
-                <ul id="ul" className={SearchBarStyle.ul}>
-                </ul>
-            </div>
-            <template id="autocomplete-item">
-                <li className={SearchBarStyle.li}></li>
-            </template>
+            <Autocomplete keyword={keyword} onClick={handleClick}/>
         </div>
     )
 }

@@ -47,13 +47,12 @@
   position: absolute;
   width: 100%;
   overflow: scroll;
-  height: 50vh;
+  top: 103%;
 }
 
 .ul {
   margin: 0;
   padding: 0;
-  border-top: 1px solid #8f8f8f;
 }
 
 .li {
