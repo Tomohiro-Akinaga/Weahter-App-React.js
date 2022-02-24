@@ -2,16 +2,20 @@ import React from "react";
 import SearchBarStyle from "../SearchBar/SearchBar.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-import JSON from "./countryState.json";
 import Autocomplete from "./Autocomplete.jsx";
 
 export default function SearchBar() {
 
-    const [keyword, setKeyword] = React.useState("");
+    const [keyword, setKeyword] = React.useState("[]");
 
     function handleChange(event) {
-        setKeyword(event.target.value);
+        if (!event.target.value) {
+            setKeyword("[]");
+        } else {
+            setKeyword(event.target.value);
+        }
     }
+    
     return (
         <div className={SearchBarStyle.container}>
             <form className={SearchBarStyle.form} autoComplete="off" type="submit">

@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
 body {
-  background-image: url(../src/resources/images/japan.jpg);
+  background-image: url(../src/resources/images/vancouver.jpg);
   background-size: cover;
   -webkit-backdrop-filter: brightness(40%);
   backdrop-filter: brightness(40%);
