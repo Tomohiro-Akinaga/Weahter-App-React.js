@@ -1,9 +1,19 @@
+@import "./variables.scss";
+
 .container {
     display: flex;
     width: 100%;
     justify-content: space-around;
+    padding-bottom: 10px;
+    border-bottom: solid 3px $switch-bar-border-bottom;
 }
 
-.h2 {
+.a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.5rem;
     font-weight: 300;
+    &.is-active {
+        color: #000;
+    }
 }

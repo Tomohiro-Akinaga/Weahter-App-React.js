@@ -4,6 +4,7 @@ import DisplayDate from "./components/DisplayDate/DisplayDate.jsx";
 import CurrentWeather from "./components/CurrentWeather/CurrentWeather.jsx";
 import Description from "./components/Description/Description.jsx";
 import SwitchBar from "./components/SwitchBar/SwitchBar.jsx";
+import HourlyItem from "./components/HourlyItem/HourlyItem.jsx";
 import "./App.scss";
 import { useEffect } from "react/cjs/react.development";
 
@@ -37,7 +38,7 @@ export default function App() {
             </div>
             <div className="app-bottom">
                 <SwitchBar />
-                {/* <HourlyItem /> */}
+                <HourlyItem />
             </div>
         </div>
     );
