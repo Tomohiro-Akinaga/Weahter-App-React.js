@@ -1,12 +1,18 @@
 .app {
-  padding: 20px 40px;
-  display: flex;
-  flex-direction: column;
+    padding: 20px 40px;
+    display: flex;
+    flex-direction: column;
 }
 
 .app-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.app-middle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 /*# sourceMappingURL=App.css.map */
