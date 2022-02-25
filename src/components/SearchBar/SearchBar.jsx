@@ -1,11 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import SearchBarStyle from "../SearchBar/SearchBar.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import Autocomplete from "./Autocomplete.jsx";
 
-export default function SearchBar() {
-
+export default function SearchBar(props) {
     const [keyword, setKeyword] = React.useState("[]");
     const inputRef = React.useRef(null);
 
@@ -19,22 +18,32 @@ export default function SearchBar() {
 
     function handleClick(event) {
         inputRef.current.value = event.target.innerText;
-    }   
-
-    function handleSubmit(event) {
-        event.preventDefault();
-        console.log(event.target.querySelector(".SearchBar_input__V8-ey").value);
+        setKeyword("[]");
     }
 
     return (
-        <div className={SearchBarStyle.container} >
-            <form className={SearchBarStyle.form} autoComplete="off" type="submit" onSubmit={handleSubmit}>
-                <input className={SearchBarStyle.input} onChange={handleChange} type="text" placeholder="Enter country name" ref={inputRef}></input>
+        <div className={SearchBarStyle.container}>
+            <form
+                className={SearchBarStyle.form}
+                autoComplete="off"
+                type="submit"
+                onSubmit={props.onSubmit}
+            >
+                <input
+                    className={SearchBarStyle.input}
+                    onChange={handleChange}
+                    type="text"
+                    placeholder="Enter country name"
+                    ref={inputRef}
+                ></input>
                 <button className={SearchBarStyle.button} type="submit">
-                    <FontAwesomeIcon className={SearchBarStyle.icon} icon={faMagnifyingGlass} />
+                    <FontAwesomeIcon
+                        className={SearchBarStyle.icon}
+                        icon={faMagnifyingGlass}
+                    />
                 </button>
             </form>
-            <Autocomplete keyword={keyword} onClick={handleClick}/>
+            <Autocomplete keyword={keyword} onClick={handleClick} />
         </div>
-    )
+    );
 }
