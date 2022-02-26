@@ -37,7 +37,6 @@ export default function App() {
                 <Description />
             </div>
             <div className="app-bottom">
-                <SwitchBar />
                 <HourlyItem />
             </div>
         </div>

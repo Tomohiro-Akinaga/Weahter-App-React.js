@@ -8,7 +8,7 @@
     align-items: center;
     margin: 0;
     padding: 0;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .li {
@@ -16,8 +16,16 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 22%;
 }
 
-.p {
+.time {
     margin: 0;
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+
+.degree {
+    margin: 0;
+    font-size: 1.2rem;
 }

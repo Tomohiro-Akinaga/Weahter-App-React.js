@@ -44,13 +44,13 @@ export default function HourlyItem() {
             <ul className={HourlyItemStyle.ul}>
                 {data.map((item, index) => (
                     <li key={index} className={HourlyItemStyle.li}>
-                        <p className={HourlyItemStyle.p}>{item.time}</p>
+                        <p className={HourlyItemStyle.time}>{item.time}</p>
                         <img
                             src={item.img}
                             alt=""
                             className={HourlyItemStyle.img}
                         />
-                        <p className={HourlyItemStyle.p}>{item.degree}</p>
+                        <p className={HourlyItemStyle.degree}>{item.degree}</p>
                     </li>
                 ))}
             </ul>
