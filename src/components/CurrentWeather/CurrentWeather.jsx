@@ -1,17 +1,13 @@
-// import CurrentWeatherImg from "http://openweathermap.org/img/wn/10d@2x.png";
 import CurrentWeatherStyle from "./CurrentWeather.module.scss";
 
 export default function CurrentWeather(props) {
-    console.log(props.json);
     return (
         <div className={CurrentWeatherStyle.container}>
-            <img className={CurrentWeatherStyle.img}></img>
+            <img className={CurrentWeatherStyle.img} src={`http://openweathermap.org/img/wn/${props.currentWeather.weather[0].icon}@2x.png`}></img>
             <div className={CurrentWeatherStyle.text}>
-                <h2 className={CurrentWeatherStyle.degree}>21&deg;</h2>
-                <p className={CurrentWeatherStyle.climate}>Mostly Sunny</p>
+                <h2 className={CurrentWeatherStyle.degree}>{Math.floor(props.currentWeather.main.temp)}&deg;</h2>
+                <p className={CurrentWeatherStyle.climate}>{props.currentWeather.weather[0].main}</p>
             </div>
         </div>
     )
 };
-
-// src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`}

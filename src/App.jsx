@@ -9,7 +9,7 @@ import { useEffect } from "react/cjs/react.development";
 
 export default function App() {
     const [country, setCountry] = React.useState("Vancouver");
-    const [json, setJson] = React.useState();
+    const [currentWeather, setCurrentWeather] = React.useState();
 
     function handleSubmit(event) {
         event.preventDefault();
@@ -18,11 +18,21 @@ export default function App() {
 
     useEffect(() => {
         fetch(
-            `https://api.openweathermap.org/data/2.5/weather?q=${country}&appid=7d20d69e5d5abc8385c9ae6416019816`
+            `https://api.openweathermap.org/data/2.5/weather?q=${country}&units=metric&appid=7d20d69e5d5abc8385c9ae6416019816`
         )
             .then((res) => res.json())
             .then((data) => {
-                setJson(data);
+                setCurrentWeather(data);
+            });
+    }, [country]);
+
+    useEffect(() => {
+        fetch(
+            `https://api.openweathermap.org/data/2.5/weather?q=${country}&units=metric&appid=7d20d69e5d5abc8385c9ae6416019816`
+        )
+            .then((res) => res.json())
+            .then((data) => {
+                setCurrentWeather(data);
             });
     }, [country]);
 
@@ -33,8 +43,8 @@ export default function App() {
                 <SearchBar onSubmit={handleSubmit} />
             </div>
             <div className="app-middle">
-                {json && <CurrentWeather json={json} />}
-                <Description />
+                {currentWeather && <CurrentWeather currentWeather={currentWeather} />}
+                {currentWeather && <Description currentWeather={currentWeather}/>}
             </div>
             <div className="app-bottom">
                 <HourlyItem />

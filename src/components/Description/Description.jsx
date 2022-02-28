@@ -1,14 +1,22 @@
 import DescriptionStyle from "./Description.module.scss";
 
-export default function Description() {
+export default function Description(props) {
+    const sunriseDate = new Date(props.currentWeather.sys.sunrise * 1000);
+    const sunsetDate = new Date(props.currentWeather.sys.sunset * 1000);
+    const sunriseHour = sunriseDate.getHours().toString().padStart(2, "0");
+    const sunsetHour = sunsetDate.getHours().toString().padStart(2, "0");
+    const sunriseMinute = sunriseDate.getMinutes().toString().padStart(2, "0");
+    const sunsetMinute = sunsetDate.getMinutes().toString().padStart(2, "0");
+
     const data = [
-        { title: "High", text: "23°" },
-        { title: "Wind", text: "7mph" },
-        { title: "Sunrise", text: "05:27" },
-        { title: "Low", text: "14°" },
-        { title: "Rain", text: "0%" },
-        { title: "Sunset", text: "20:57" },
+        { title: "High", text: `${Math.floor(props.currentWeather.main.temp_max)}°`},
+        { title: "Humidity", text: `${props.currentWeather.main.humidity}%` },
+        { title: "Sunrise", text: `${sunriseHour}:${sunriseMinute}` },
+        { title: "Low", text: `${Math.floor(props.currentWeather.main.temp_min)}°` },
+        { title: "Pressure", text: `${props.currentWeather.main.pressure} hPa` },
+        { title: "Sunset", text: `${sunsetHour}:${sunsetMinute}` },
     ];
+
     return (
         <div className={DescriptionStyle.container}>
             <ul className={DescriptionStyle.ul}>
