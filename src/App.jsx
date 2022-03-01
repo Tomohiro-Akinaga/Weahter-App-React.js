@@ -4,6 +4,7 @@ import DisplayDate from "./components/DisplayDate/DisplayDate.jsx";
 import CurrentWeather from "./components/CurrentWeather/CurrentWeather.jsx";
 import Description from "./components/Description/Description.jsx";
 import HourlyItem from "./components/HourlyItem/HourlyItem.jsx";
+import Loading from "./components/Loading/Loading.jsx";
 import "./App.scss";
 import { useEffect } from "react/cjs/react.development";
 
@@ -26,7 +27,14 @@ export default function App() {
         )
             .then((res) => res.json())
             .then((data) => {
+                if(data.cod === "404") {
+                    alert("city not found");
+                    return ;
+                };
                 setCurrentWeather(data);
+                setLat(data.coord.lat);
+                setLon(data.coord.lon);
+                
             });
     }, [country]);
 
@@ -38,12 +46,13 @@ export default function App() {
             .then((data) => {
                 setHourlyWeather(data);
             });
-    }, [country]);
+    }, [currentWeather]);
 
     return (
         <div className="app">
+            {!hourlyWeather && <Loading />}
             <div className="app-top">
-                <DisplayDate country={country} />
+                {currentWeather && <DisplayDate currentWeather={currentWeather} />}
                 <SearchBar onSubmit={handleSubmit} />
             </div>
             <div className="app-middle">
