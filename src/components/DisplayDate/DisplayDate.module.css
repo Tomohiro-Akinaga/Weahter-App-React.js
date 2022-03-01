@@ -9,6 +9,27 @@
 
 .date {
   font-size: 1.2rem;
+  font-weight: 300;
   margin: 0;
+}
+
+@media only screen and (max-width: 910px) {
+  .container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .city {
+    font-size: 1.5rem;
+    margin: 0;
+  }
+
+  .date {
+    font-size: 1.2rem;
+    margin: 0;
+  }
 }
 /*# sourceMappingURL=DisplayDate.module.css.map */

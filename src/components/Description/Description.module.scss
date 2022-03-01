@@ -6,9 +6,40 @@
     margin: 0;
     padding: 0;
     list-style-type: none;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .li {
     display: flex;
     flex-direction: column;
+    width: 33%;
+    align-items: center;
+}
+
+.h2 {
+    margin: 0;
+    margin-top: 20px;
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+.p {
+    margin: 0;
+    font-weight: 300;
+}
+
+@media only screen and (max-width: 910px) {
+    .container {
+        width: 100%;
+    }
+    .h2 {
+        font-size: 1.3rem;
+    }
+    
+    .p {
+        margin: 0;
+        font-weight: 300;
+    }
 }
