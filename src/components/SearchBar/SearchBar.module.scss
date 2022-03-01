@@ -74,7 +74,7 @@
 
 @media only screen and (max-width: 910px) {
     .container {
-        width: 100%;
+        width: 400px;
     }
     .form {
         width: 100%;
@@ -86,4 +86,11 @@
     .button {
         padding-right: 10px;
     }
+}
+
+@media only screen and (max-width: 540px) {
+    .container {
+        width: 100%;
+    }
+
 }

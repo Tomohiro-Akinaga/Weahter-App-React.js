@@ -1,44 +1,23 @@
 import HourlyItemStyle from "./HourlyItem.module.scss";
-// import logo from "/Users/tomo/weather-app-react/src/resources/images/cloudy.png";
 
-export default function HourlyItem() {
-    const data = [
-        {
-            time: "5am",
-            img: "http://openweathermap.org/img/wn/10d@2x.png",
-            degree: "14°",
-        },
-        {
-            time: "6am",
-            img: "http://openweathermap.org/img/wn/10d@2x.png",
-            degree: "22°",
-        },
-        {
-            time: "7am",
-            img: "http://openweathermap.org/img/wn/10d@2x.png",
-            degree: "13°",
-        },
-        {
-            time: "8am",
-            img: "http://openweathermap.org/img/wn/10d@2x.png",
-            degree: "16°",
-        },
-        {
-            time: "9am",
-            img: "http://openweathermap.org/img/wn/10d@2x.png",
-            degree: "12°",
-        },
-        {
-            time: "10am",
-            img: "http://openweathermap.org/img/wn/10d@2x.png",
-            degree: "11°",
-        },
-        {
-            time: "11am",
-            img: "http://openweathermap.org/img/wn/10d@2x.png",
-            degree: "10°",
-        },
-    ];
+export default function HourlyItem(props) {
+    const date = new Date();
+    let hour = date.getHours();
+
+    const data = [];
+    for (let i = 1; i < 8; i++) {
+        data.push(
+            {
+            time: hour + i < 12 ? `${hour - 12}am` :
+            hour + i === 12 ? "12pm" :
+            `${hour + i - 12}pm`
+            ,
+            img: `http://openweathermap.org/img/wn/${props.hourlyWeather.hourly[i].weather[0].icon}@2x.png`,
+            degree: Math.floor(props.hourlyWeather.hourly[i].temp) + "°",
+            }
+        );
+    }
+    
     return (
         <div className={HourlyItemStyle.container}>
             <ul className={HourlyItemStyle.ul}>

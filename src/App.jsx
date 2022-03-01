@@ -10,6 +10,10 @@ import { useEffect } from "react/cjs/react.development";
 export default function App() {
     const [country, setCountry] = React.useState("Vancouver");
     const [currentWeather, setCurrentWeather] = React.useState();
+    /* default lat and long are vancouver */
+    const [lat, setLat] = React.useState("49.2497");
+    const [lon, setLon] = React.useState("-123.1193");
+    const [hourlyWeather, setHourlyWeather] = React.useState();
 
     function handleSubmit(event) {
         event.preventDefault();
@@ -28,11 +32,11 @@ export default function App() {
 
     useEffect(() => {
         fetch(
-            `https://api.openweathermap.org/data/2.5/weather?q=${country}&units=metric&appid=7d20d69e5d5abc8385c9ae6416019816`
+            `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&appid=7d20d69e5d5abc8385c9ae6416019816`
         )
             .then((res) => res.json())
             .then((data) => {
-                setCurrentWeather(data);
+                setHourlyWeather(data);
             });
     }, [country]);
 
@@ -47,7 +51,7 @@ export default function App() {
                 {currentWeather && <Description currentWeather={currentWeather}/>}
             </div>
             <div className="app-bottom">
-                <HourlyItem />
+                {hourlyWeather && <HourlyItem hourlyWeather={hourlyWeather}/>}
             </div>
         </div>
     );
