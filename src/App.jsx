@@ -7,6 +7,21 @@ import HourlyItem from "./components/HourlyItem/HourlyItem.jsx";
 import Loading from "./components/Loading/Loading.jsx";
 import AppStyle from "./App.module.scss";
 import { useState, useEffect } from "react";
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyDKZ3CKxlUUiGttBZJrKTi4HcFZvWmiGFo",
+    authDomain: "weather-forecast-react-app.firebaseapp.com",
+    projectId: "weather-forecast-react-app",
+    storageBucket: "weather-forecast-react-app.appspot.com",
+    messagingSenderId: "1043737875729",
+    appId: "1:1043737875729:web:f959d03a508cd582dfa8b0",
+    measurementId: "G-Z1XYK3GH8V"
+};
+
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
 
 const VANCOUVER = { lat:"49.2497", lon:"-123.1193" };
 

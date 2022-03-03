@@ -1,5 +1,5 @@
 import React from "react";
-import DisplayDateStyle from "../DisplayDate/DisplayDate.module.css";
+import DisplayDateStyle from "./DisplayDate.module.css";
 
 export default function DisplayDate(props) {
     /* display state and country name */

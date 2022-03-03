@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import SearchBarStyle from "../SearchBar/SearchBar.module.scss";
+import SearchBarStyle from "./SearchBar.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import Autocomplete from "./Autocomplete.jsx";
