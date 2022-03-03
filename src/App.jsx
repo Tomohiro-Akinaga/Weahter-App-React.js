@@ -5,16 +5,18 @@ import CurrentWeather from "./components/CurrentWeather/CurrentWeather.jsx";
 import Description from "./components/Description/Description.jsx";
 import HourlyItem from "./components/HourlyItem/HourlyItem.jsx";
 import Loading from "./components/Loading/Loading.jsx";
-import "./App.scss";
-import { useEffect } from "react/cjs/react.development";
+import AppStyle from "./App.module.scss";
+import { useState, useEffect } from "react";
+
+const VANCOUVER = { lat:"49.2497", lon:"-123.1193" };
 
 export default function App() {
-    const [country, setCountry] = React.useState("Vancouver");
-    const [currentWeather, setCurrentWeather] = React.useState();
+    const [country, setCountry] = useState("Vancouver");
+    const [currentWeather, setCurrentWeather] = useState();
     /* default lat and long are vancouver */
-    const [lat, setLat] = React.useState("49.2497");
-    const [lon, setLon] = React.useState("-123.1193");
-    const [hourlyWeather, setHourlyWeather] = React.useState();
+    const [lat, setLat] = useState("49.2497");
+    const [lon, setLon] = useState("-123.1193");
+    const [hourlyWeather, setHourlyWeather] = useState();
 
     function handleSubmit(event) {
         event.preventDefault();
@@ -34,7 +36,6 @@ export default function App() {
                 setCurrentWeather(data);
                 setLat(data.coord.lat);
                 setLon(data.coord.lon);
-                
             });
     }, [country]);
 
@@ -46,20 +47,20 @@ export default function App() {
             .then((data) => {
                 setHourlyWeather(data);
             });
-    }, [currentWeather]);
+    }, [country]);
 
     return (
-        <div className="app">
+        <div className={AppStyle.app}>
             {!hourlyWeather && <Loading />}
-            <div className="app-top">
+            <div className={AppStyle.top}>
                 {currentWeather && <DisplayDate currentWeather={currentWeather} />}
                 <SearchBar onSubmit={handleSubmit} />
             </div>
-            <div className="app-middle">
+            <div className={AppStyle.middle}>
                 {currentWeather && <CurrentWeather currentWeather={currentWeather} />}
                 {currentWeather && <Description currentWeather={currentWeather}/>}
             </div>
-            <div className="app-bottom">
+            <div className={AppStyle.bottom}>
                 {hourlyWeather && <HourlyItem hourlyWeather={hourlyWeather}/>}
             </div>
         </div>

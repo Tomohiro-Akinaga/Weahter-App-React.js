@@ -4,19 +4,19 @@
     flex-direction: column;
 }
 
-.app-top {
+.top {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.app-middle {
+.middle {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.app-bottom {
+.bottom {
     margin-top: 50px;
 }
 
@@ -26,7 +26,7 @@
         padding: 20px 30px;
     }
 
-    .app-top {
+    .top {
         display: flex;
         justify-content: space-between;
         flex-direction: column-reverse;
@@ -34,14 +34,14 @@
         width: 100%;
     }
 
-    .app-middle {
+    .middle {
         display: flex;
         justify-content: space-between;
         align-items: center;
         flex-direction: column;
     }
 
-    .app-bottom {
+    .bottom {
         margin-top: 25px;
     }
 }

@@ -2,7 +2,6 @@ import React from "react";
 import DisplayDateStyle from "../DisplayDate/DisplayDate.module.css";
 
 export default function DisplayDate(props) {
-    console.log(props.currentWeather);
     /* display state and country name */
     const state = props.currentWeather.name;
     const country = props.currentWeather.sys.country;
