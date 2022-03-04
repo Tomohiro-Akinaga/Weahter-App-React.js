@@ -1,15 +1,22 @@
 import React from "react";
+import { useState, useEffect } from "react";
+/* components */
 import SearchBar from "./components/SearchBar/SearchBar.jsx";
 import DisplayDate from "./components/DisplayDate/DisplayDate.jsx";
 import CurrentWeather from "./components/CurrentWeather/CurrentWeather.jsx";
 import Description from "./components/Description/Description.jsx";
 import HourlyItem from "./components/HourlyItem/HourlyItem.jsx";
 import Loading from "./components/Loading/Loading.jsx";
+/* API */
+import { fetchCurrentWeather } from "./api/weatherAPI.js";
+import { fetchHourlyWeather } from "./api/weatherAPI.js";
+/* css */
 import AppStyle from "./App.module.scss";
-import { useState, useEffect } from "react";
+/* Firebase */
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 
+/* Firebase */
 const firebaseConfig = {
     apiKey: "AIzaSyDKZ3CKxlUUiGttBZJrKTi4HcFZvWmiGFo",
     authDomain: "weather-forecast-react-app.firebaseapp.com",
@@ -19,12 +26,10 @@ const firebaseConfig = {
     appId: "1:1043737875729:web:f959d03a508cd582dfa8b0",
     measurementId: "G-Z1XYK3GH8V"
 };
-
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 
-const VANCOUVER = { lat:"49.2497", lon:"-123.1193" };
-
+/* component */
 export default function App() {
     const [country, setCountry] = useState("Vancouver");
     const [currentWeather, setCurrentWeather] = useState();
@@ -61,8 +66,13 @@ export default function App() {
             .then((res) => res.json())
             .then((data) => {
                 setHourlyWeather(data);
+                console.log(data);
             });
-    }, [country]);
+    }, [currentWeather]);
+
+    const weatherForecastData = fetchCurrentWeather("Vancouver");
+    const weatherHourlyData = fetchHourlyWeather("49.2497", "-123.1193");
+    console.log(weatherForecastData, weatherHourlyData);
 
     return (
         <div className={AppStyle.app}>
