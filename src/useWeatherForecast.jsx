@@ -1,20 +1,19 @@
-import React from "react";
 import { useState, useEffect } from "react";
+import { fetchCurrentWeather, fetchHourlyWeather } from "./api/weatherAPI.js";
 
-
-function useWeatherForecast() {
-    const [country, setCountry] = useState("Vancouver");
-    const [currentWeather, setCurrentWeather] = useState();
-
-    useEffect(() => {
-        async function fetchWeatherData() {
-            await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${country}&units=metric&appid=7d20d69e5d5abc8385c9ae6416019816`)
-                    .then(res => res.json())
-                    // .then(data => );
+ function useWeatherForecast() {
+     const [current, setCurrent] = useState();
+     const [hourly, setHourly] = useState();
+     useEffect(() => {
+        async function IIFE() {
+            const current = await fetchCurrentWeather("Vancouver");
+            setCurrent(current);
+            const hourly = await fetchHourlyWeather(current.coord.lat, current.coord.lon);
+            setHourly(hourly);
         }
-    }
-
-    )
-};
+        IIFE();
+    }, []);
+    return { current, hourly };
+}
 
 export default useWeatherForecast;

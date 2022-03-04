@@ -5,6 +5,7 @@ body {
   -webkit-backdrop-filter: brightness(40%);
   backdrop-filter: brightness(40%);
   margin: 0;
+  padding: 0;
   color: #fff;
   font-family: "Poppins";
 }

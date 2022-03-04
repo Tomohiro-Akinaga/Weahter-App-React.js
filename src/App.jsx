@@ -1,12 +1,15 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import PropTypes from 'prop-types'
 /* components */
 import SearchBar from "./components/SearchBar/SearchBar.jsx";
 import DisplayDate from "./components/DisplayDate/DisplayDate.jsx";
-import CurrentWeather from "./components/CurrentWeather/CurrentWeather.jsx";
-import Description from "./components/Description/Description.jsx";
-import HourlyItem from "./components/HourlyItem/HourlyItem.jsx";
+// import CurrentWeather from "./components/CurrentWeather/CurrentWeather.jsx";
+// import Description from "./components/Description/Description.jsx";
+// import HourlyItem from "./components/HourlyItem/HourlyItem.jsx";
 import Loading from "./components/Loading/Loading.jsx";
+/* custom hooks */
+import useWeatherForecast from "./useWeatherForecast.jsx";
 /* API */
 import { fetchCurrentWeather } from "./api/weatherAPI.js";
 import { fetchHourlyWeather } from "./api/weatherAPI.js";
@@ -15,6 +18,7 @@ import AppStyle from "./App.module.scss";
 /* Firebase */
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
+import { text } from "@fortawesome/fontawesome-svg-core";
 
 /* Firebase */
 const firebaseConfig = {
@@ -30,64 +34,42 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 
 /* component */
-export default function App() {
-    const [country, setCountry] = useState("Vancouver");
-    const [currentWeather, setCurrentWeather] = useState();
+function App() {
+    const { current, hourly } = useWeatherForecast();
+    console.log(current);
+    // const [country, setCountry] = useState("Vancouver");
+    // const [currentWeather, setCurrentWeather] = useState();
+    // const [hourlyWeather, setHourlyWeather] = useState();
+    // const { lat, lon } = useLocation(VANCOUVER.lat, VANCOUVER.lon);
     /* default lat and long are vancouver */
-    const [lat, setLat] = useState("49.2497");
-    const [lon, setLon] = useState("-123.1193");
-    const [hourlyWeather, setHourlyWeather] = useState();
+    // const [lat, setLat] = useState("49.2497");
+    // const [lon, setLon] = useState("-123.1193");
 
-    function handleSubmit(event) {
-        event.preventDefault();
-        setCountry(event.target.querySelector(".SearchBar_input__V8-ey").value);
-    }
 
-    useEffect(() => {
-        fetch(
-            `https://api.openweathermap.org/data/2.5/weather?q=${country}&units=metric&appid=7d20d69e5d5abc8385c9ae6416019816`
-        )
-            .then((res) => res.json())
-            .then((data) => {
-                if(data.cod === "404") {
-                    alert("city not found");
-                    return ;
-                };
-                setCurrentWeather(data);
-                setLat(data.coord.lat);
-                setLon(data.coord.lon);
-            });
-    }, [country]);
-
-    useEffect(() => {
-        fetch(
-            `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&appid=7d20d69e5d5abc8385c9ae6416019816`
-        )
-            .then((res) => res.json())
-            .then((data) => {
-                setHourlyWeather(data);
-                console.log(data);
-            });
-    }, [currentWeather]);
-
-    const weatherForecastData = fetchCurrentWeather("Vancouver");
-    const weatherHourlyData = fetchHourlyWeather("49.2497", "-123.1193");
-    console.log(weatherForecastData, weatherHourlyData);
+    // function handleSubmit(event) {
+    //     event.preventDefault();
+    //     setCountry(event.target.querySelector(".SearchBar_input__V8-ey").value);
+    // }
 
     return (
         <div className={AppStyle.app}>
-            {!hourlyWeather && <Loading />}
+            {/* {!hourlyWeather && <Loading />} */}
             <div className={AppStyle.top}>
-                {currentWeather && <DisplayDate currentWeather={currentWeather} />}
-                <SearchBar onSubmit={handleSubmit} />
+                { current && <DisplayDate current={current} /> }
+                <SearchBar />
             </div>
-            <div className={AppStyle.middle}>
+            {/* <div className={AppStyle.middle}>
                 {currentWeather && <CurrentWeather currentWeather={currentWeather} />}
                 {currentWeather && <Description currentWeather={currentWeather}/>}
             </div>
             <div className={AppStyle.bottom}>
                 {hourlyWeather && <HourlyItem hourlyWeather={hourlyWeather}/>}
-            </div>
+            </div> */}
         </div>
     );
+    App.propTypes = {
+        current: PropTypes.object
+    }
 }
+
+export default App;

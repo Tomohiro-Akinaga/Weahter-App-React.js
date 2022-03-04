@@ -2,9 +2,7 @@ import React from "react";
 import DisplayDateStyle from "./DisplayDate.module.css";
 
 export default function DisplayDate(props) {
-    /* display state and country name */
-    const state = props.currentWeather.name;
-    const country = props.currentWeather.sys.country;
+    const propsObject = { name:props.current.name, country:props.current.sys.country }
     /* display today date */
     const today = new Date();
     const date = today.getDate();
@@ -42,7 +40,7 @@ export default function DisplayDate(props) {
 
     return (
         <div className={DisplayDateStyle.container}>
-            <p className={DisplayDateStyle.city}>{state}, {country} </p>
+            <p className={DisplayDateStyle.city}>{propsObject.name}, {propsObject.country} </p>
             <p className={DisplayDateStyle.date}>
                 {month} {date}, {day}
             </p>
