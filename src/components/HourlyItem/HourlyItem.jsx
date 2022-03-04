@@ -8,7 +8,7 @@ export default function HourlyItem(props) {
     for (let i = 1; i < 8; i++) {
         data.push(
             {
-            time: hour + i < 12 ? `${hour - 12}am` :
+            time: hour + i < 12 ? `${hour + i}am` :
             hour + i === 12 ? "12pm" :
             `${hour + i - 12}pm`
             ,
