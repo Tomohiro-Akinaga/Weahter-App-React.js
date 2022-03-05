@@ -3,10 +3,11 @@ import SearchBarStyle from "./SearchBar.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import Autocomplete from "./Autocomplete.jsx";
+import { useState, useRef } from "react";
 
 export default function SearchBar(props) {
-    const [keyword, setKeyword] = React.useState("[]");
-    const inputRef = React.useRef(null);
+    const [keyword, setKeyword] = useState("[]");
+    const inputRef = useRef(null);
 
     function handleChange(event) {
         if (!event.target.value) {
@@ -26,7 +27,6 @@ export default function SearchBar(props) {
             <form
                 className={SearchBarStyle.form}
                 autoComplete="off"
-                type="submit"
                 onSubmit={props.onSubmit}
             >
                 <input
