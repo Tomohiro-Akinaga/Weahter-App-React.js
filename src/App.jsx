@@ -6,7 +6,7 @@ import SearchBar from "./components/SearchBar/SearchBar.jsx";
 import DisplayDate from "./components/DisplayDate/DisplayDate.jsx";
 import CurrentWeather from "./components/CurrentWeather/CurrentWeather.jsx";
 import Description from "./components/Description/Description.jsx";
-// import HourlyItem from "./components/HourlyItem/HourlyItem.jsx";
+import HourlyItem from "./components/HourlyItem/HourlyItem.jsx";
 import Loading from "./components/Loading/Loading.jsx";
 /* custom hooks */
 import useWeatherForecast from "./useWeatherForecast.jsx";
@@ -48,9 +48,9 @@ function App() {
                 {current && <CurrentWeather current={current} />}
                 {current && <Description current={current}/>}
             </div>
-            {/* <div className={AppStyle.bottom}>
-                {hourlyWeather && <HourlyItem hourlyWeather={hourlyWeather}/>}
-            </div> */}
+            <div className={AppStyle.bottom}>
+                {hourly && <HourlyItem hourly={hourly}/>}
+            </div>
         </div>
     );
     App.propTypes = {

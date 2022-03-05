@@ -1,27 +1,27 @@
 import HourlyItemStyle from "./HourlyItem.module.scss";
 
-export default function HourlyItem(props) {
+export default function HourlyItem({ hourly }) {
     const date = new Date();
     let hour = date.getHours();
 
-    const data = [];
+    const timeArray = [];
     for (let i = 1; i < 8; i++) {
-        data.push(
+        timeArray.push(
             {
             time: hour + i < 12 ? `${hour + i}am` :
             hour + i === 12 ? "12pm" :
             `${hour + i - 12}pm`
             ,
-            img: `http://openweathermap.org/img/wn/${props.hourlyWeather.hourly[i].weather[0].icon}@2x.png`,
-            degree: Math.floor(props.hourlyWeather.hourly[i].temp) + "°",
-            }
+            img: `http://openweathermap.org/img/wn/${hourly.hourly[i].weather[0].icon}@2x.png`,
+            degree: Math.floor(hourly.hourly[i].temp) + "°",
+            } 
         );
     }
     
     return (
         <div className={HourlyItemStyle.container}>
             <ul className={HourlyItemStyle.ul}>
-                {data.map((item, index) => (
+                {timeArray.map((item, index) => (
                     <li key={index} className={HourlyItemStyle.li}>
                         <p className={HourlyItemStyle.time}>{item.time}</p>
                         <img
