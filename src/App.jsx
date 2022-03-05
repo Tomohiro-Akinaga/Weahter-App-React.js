@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import SearchBar from "./components/SearchBar/SearchBar.jsx";
 import DisplayDate from "./components/DisplayDate/DisplayDate.jsx";
 import CurrentWeather from "./components/CurrentWeather/CurrentWeather.jsx";
-// import Description from "./components/Description/Description.jsx";
+import Description from "./components/Description/Description.jsx";
 // import HourlyItem from "./components/HourlyItem/HourlyItem.jsx";
 import Loading from "./components/Loading/Loading.jsx";
 /* custom hooks */
@@ -14,8 +14,6 @@ import useWeatherForecast from "./useWeatherForecast.jsx";
 import AppStyle from "./App.module.scss";
 /* Firebase */
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-import { text } from "@fortawesome/fontawesome-svg-core";
 
 /* Firebase */
 const firebaseConfig = {
@@ -27,8 +25,7 @@ const firebaseConfig = {
     appId: "1:1043737875729:web:f959d03a508cd582dfa8b0",
     measurementId: "G-Z1XYK3GH8V",
 };
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+initializeApp(firebaseConfig);
 
 /* component */
 function App() {
@@ -49,7 +46,7 @@ function App() {
             </div>
             <div className={AppStyle.middle}>
                 {current && <CurrentWeather current={current} />}
-                {/* {current && <Description current={current}/>} */}
+                {current && <Description current={current}/>}
             </div>
             {/* <div className={AppStyle.bottom}>
                 {hourlyWeather && <HourlyItem hourlyWeather={hourlyWeather}/>}
